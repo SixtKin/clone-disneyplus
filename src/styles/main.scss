@@ -1,9 +1,56 @@
+@use 'hero';
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-$corDeFundo: #040714
+$corDeFundo: #040714;
+$corTextoPrincipal: silver;
+$corTextoSecudanrio: #f9f9f9; 
 
-body
+body {
+    background-color: $corDeFundo;
+}
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: $corTextoPrincipal;
+}
+
+@mixin title($fontSize: 40px) {
+    @include text($fontSize);
+    color: $corTextoSecudanrio;
+}
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title;
+}
+
+.title--small {
+    @include title(28px);
+}
+
+.link-text {
+    @include text(18px);
+    color: $corTextoSecudanrio;
+    text-decoration: underline;
+}
